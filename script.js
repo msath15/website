@@ -1,3 +1,19 @@
+function siteBase() {
+  if (location.hostname.endsWith("github.io")) {
+    const segment = location.pathname.split("/").filter(Boolean)[0];
+    return segment ? `/${segment}/` : "/";
+  }
+
+  return "/";
+}
+
+function initProfilePhoto() {
+  const photo = document.getElementById("profile-photo");
+  if (!photo) return;
+
+  photo.src = `${siteBase()}assets/profile.jpg?v=2`;
+}
+
 function updateClock() {
   const el = document.getElementById("local-time");
   if (!el) return;
@@ -38,6 +54,7 @@ function initReveal() {
   });
 }
 
+initProfilePhoto();
 updateClock();
 setInterval(updateClock, 30_000);
 initYear();
