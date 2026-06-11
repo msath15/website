@@ -67,13 +67,13 @@
           <figure class="hero-photo">
             <div class="photo-frame">
               <img
-                src="assets/profile.jpg"
+                src="./assets/profile.jpg"
                 alt="Sathvika Mallavarapu"
                 width="320"
                 height="400"
-                onerror="this.hidden=true; this.nextElementSibling.hidden=false;"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.add('is-visible');"
               />
-              <div class="photo-fallback" hidden>
+              <div class="photo-fallback" aria-hidden="true">
                 <span>SM</span>
               </div>
             </div>
