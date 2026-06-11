@@ -69,6 +69,10 @@ a {
   flex-wrap: wrap;
 }
 
+.header-inner--nav-only {
+  justify-content: flex-end;
+}
+
 .logo {
   font-size: 13px;
   font-weight: 500;
