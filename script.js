@@ -11,21 +11,7 @@ function initProfilePhoto() {
   const photo = document.getElementById("profile-photo");
   if (!photo) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=5`;
-}
-
-function updateClock() {
-  const el = document.getElementById("local-time");
-  if (!el) return;
-
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: "America/New_York",
-  });
-
-  el.textContent = formatter.format(new Date());
+  photo.src = `${siteBase()}assets/profile.jpg?v=6`;
 }
 
 function initYear() {
@@ -55,8 +41,6 @@ function initReveal() {
 }
 
 initProfilePhoto();
-updateClock();
-setInterval(updateClock, 30_000);
 initYear();
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
