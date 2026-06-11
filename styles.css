@@ -551,7 +551,8 @@ a.contact-link:hover span:last-child {
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.reveal.is-visible {
+.reveal.is-visible,
+.contact-section {
   opacity: 1;
   transform: translateY(0);
 }

@@ -11,7 +11,7 @@ function initProfilePhoto() {
   const photo = document.getElementById("profile-photo");
   if (!photo) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=12`;
+  photo.src = `${siteBase()}assets/profile.jpg?v=13`;
 }
 
 function initYear() {
@@ -22,22 +22,39 @@ function initYear() {
 function initReveal() {
   const sections = document.querySelectorAll(".section, .hero");
 
+  const showSection = (section) => section.classList.add("is-visible");
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          showSection(entry.target);
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.05, rootMargin: "0px 0px 80px 0px" }
   );
 
   sections.forEach((section) => {
     section.classList.add("reveal");
     observer.observe(section);
   });
+
+  // Sections at the bottom (like contact) can miss the observer — show if already on screen
+  requestAnimationFrame(() => {
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        showSection(section);
+      }
+    });
+  });
+
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target) showSection(target);
+  }
 }
 
 initProfilePhoto();
