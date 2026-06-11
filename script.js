@@ -11,7 +11,7 @@ function initProfilePhoto() {
   const photo = document.getElementById("profile-photo");
   if (!photo) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=7`;
+  photo.src = `${siteBase()}assets/profile.jpg?v=8`;
 }
 
 function initYear() {
