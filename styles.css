@@ -194,9 +194,13 @@ main {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 24px;
   align-items: start;
+}
+
+.hero-content .body-copy:last-of-type {
+  margin-bottom: 10px;
 }
 
 .eyebrow {
@@ -234,8 +238,8 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin: 8px 0 0;
-  padding: 10px 14px;
+  margin: 0;
+  padding: 8px 12px;
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
@@ -250,6 +254,15 @@ h1 {
 
 .hero-photo {
   margin: 0;
+  max-width: 220px;
+  justify-self: end;
+}
+
+.hero-photo .photo-frame img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .photo-frame {
@@ -666,6 +679,10 @@ a.contact-link:hover span:last-child {
 .personal-group .tags span {
   background: #ffc8e8;
   box-shadow: 2px 2px 0 var(--brick-dark);
+}
+
+.personal-group--full {
+  grid-column: 1 / -1;
 }
 
 .site-footer {

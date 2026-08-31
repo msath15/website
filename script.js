@@ -11,7 +11,7 @@ function initProfilePhoto() {
   const photo = document.getElementById("profile-photo");
   if (!photo) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=23`;
+  photo.src = `${siteBase()}assets/profile.jpg?v=27`;
 }
 
 function initYear() {
@@ -43,7 +43,7 @@ function initBlockGame() {
   const coin = game.querySelector(".q-block--coin");
   if (coin) {
     coin.addEventListener("click", (event) => {
-      showFact("Coin get! → sathvika@bluearcus.com", coin);
+    showFact("Coin get! Email: sathvika@bluearcus.com", coin);
       // Let mailto open; brief visual feedback only
       if (event.metaKey || event.ctrlKey) return;
     });
