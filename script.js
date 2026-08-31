@@ -11,12 +11,43 @@ function initProfilePhoto() {
   const photo = document.getElementById("profile-photo");
   if (!photo) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=15`;
+  photo.src = `${siteBase()}assets/profile.jpg?v=23`;
 }
 
 function initYear() {
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+}
+
+function initBlockGame() {
+  const game = document.getElementById("block-game");
+  const reveal = document.getElementById("block-reveal");
+  if (!game || !reveal) return;
+
+  const showFact = (text, activeEl) => {
+    game.querySelectorAll(".q-block.is-hit").forEach((el) => {
+      if (el !== activeEl) el.classList.remove("is-hit");
+    });
+
+    if (activeEl) activeEl.classList.add("is-hit");
+    reveal.hidden = false;
+    reveal.textContent = text;
+  };
+
+  game.querySelectorAll(".q-block[data-fact]").forEach((block) => {
+    block.addEventListener("click", () => {
+      showFact(block.dataset.fact || "", block);
+    });
+  });
+
+  const coin = game.querySelector(".q-block--coin");
+  if (coin) {
+    coin.addEventListener("click", (event) => {
+      showFact("Coin get! → sathvika@bluearcus.com", coin);
+      // Let mailto open; brief visual feedback only
+      if (event.metaKey || event.ctrlKey) return;
+    });
+  }
 }
 
 function initReveal() {
@@ -41,7 +72,6 @@ function initReveal() {
     observer.observe(section);
   });
 
-  // Sections at the bottom (like contact) can miss the observer — show if already on screen
   requestAnimationFrame(() => {
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
@@ -59,6 +89,7 @@ function initReveal() {
 
 initProfilePhoto();
 initYear();
+initBlockGame();
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   initReveal();
