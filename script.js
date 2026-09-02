@@ -7,11 +7,11 @@ function siteBase() {
   return "/";
 }
 
-function initProfilePhoto() {
-  const photo = document.getElementById("profile-photo");
-  if (!photo) return;
+function initHeroQuote() {
+  const image = document.getElementById("hero-quote-image");
+  if (!image) return;
 
-  photo.src = `${siteBase()}assets/profile.jpg?v=28`;
+  image.src = `${siteBase()}assets/bojack-quote.png?v=29`;
 }
 
 function initYear() {
@@ -56,7 +56,7 @@ function initReveal() {
   }
 }
 
-initProfilePhoto();
+initHeroQuote();
 initYear();
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

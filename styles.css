@@ -194,7 +194,7 @@ main {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 280px;
   gap: 24px;
   align-items: start;
 }
@@ -252,17 +252,26 @@ h1 {
   animation: coin-bounce 1s ease-in-out infinite;
 }
 
-.hero-photo {
+.hero-quote {
   margin: 0;
-  max-width: 220px;
+  max-width: 280px;
   justify-self: end;
 }
 
-.hero-photo .photo-frame img {
-  max-height: 300px;
+.quote-frame {
+  overflow: hidden;
+  background: #2a1f4e;
+  border: var(--pixel-border) solid var(--block-shadow);
+  box-shadow: 6px 6px 0 var(--brick-dark);
+  padding: 4px;
+}
+
+.quote-frame img {
+  display: block;
   width: 100%;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid var(--brick-dark);
 }
 
 .photo-frame {
@@ -727,9 +736,9 @@ a.contact-link:hover span:last-child {
     grid-template-columns: 1fr;
   }
 
-  .hero-photo {
+  .hero-quote {
     order: -1;
-    max-width: 220px;
+    max-width: 260px;
     margin: 0 auto;
   }
 
