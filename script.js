@@ -1,19 +1,3 @@
-function siteBase() {
-  if (location.hostname.endsWith("github.io")) {
-    const segment = location.pathname.split("/").filter(Boolean)[0];
-    return segment ? `/${segment}/` : "/";
-  }
-
-  return "/";
-}
-
-function initHeroQuote() {
-  const image = document.getElementById("hero-quote-image");
-  if (!image) return;
-
-  image.src = `${siteBase()}assets/bojack-quote.png?v=29`;
-}
-
 function initYear() {
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
@@ -56,7 +40,6 @@ function initReveal() {
   }
 }
 
-initHeroQuote();
 initYear();
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

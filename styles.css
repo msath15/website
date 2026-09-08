@@ -194,9 +194,48 @@ main {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
   gap: 24px;
   align-items: start;
+}
+
+.hero-quote-card {
+  margin: 0;
+  padding: 18px 16px;
+  background: linear-gradient(180deg, #f3eeff 0%, #e8f4ff 100%);
+  border: var(--pixel-border) solid var(--block-shadow);
+  box-shadow: 6px 6px 0 #6b5b95;
+}
+
+.hero-quote-label {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  font-family: var(--pixel);
+  font-size: 7px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--question);
+  border: 3px solid var(--block-shadow);
+  box-shadow: 3px 3px 0 var(--question-dark);
+}
+
+.hero-quote-text {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.hero-quote-note {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-faint);
+  text-align: center;
 }
 
 .hero-content .body-copy:last-of-type {
@@ -250,28 +289,6 @@ h1 {
 
 .coin-badge {
   animation: coin-bounce 1s ease-in-out infinite;
-}
-
-.hero-quote {
-  margin: 0;
-  max-width: 280px;
-  justify-self: end;
-}
-
-.quote-frame {
-  overflow: hidden;
-  background: #2a1f4e;
-  border: var(--pixel-border) solid var(--block-shadow);
-  box-shadow: 6px 6px 0 var(--brick-dark);
-  padding: 4px;
-}
-
-.quote-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border: 2px solid var(--brick-dark);
 }
 
 .photo-frame {
@@ -736,10 +753,8 @@ a.contact-link:hover span:last-child {
     grid-template-columns: 1fr;
   }
 
-  .hero-quote {
-    order: -1;
-    max-width: 260px;
-    margin: 0 auto;
+  .hero-quote-card {
+    max-width: 420px;
   }
 
   .project-grid {
