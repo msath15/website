@@ -207,20 +207,6 @@ main {
   box-shadow: 6px 6px 0 #6b5b95;
 }
 
-.hero-quote-label {
-  margin: 0 0 12px;
-  padding: 8px 10px;
-  font-family: var(--pixel);
-  font-size: 7px;
-  line-height: 1.5;
-  text-align: center;
-  text-transform: uppercase;
-  color: var(--text);
-  background: var(--question);
-  border: 3px solid var(--block-shadow);
-  box-shadow: 3px 3px 0 var(--question-dark);
-}
-
 .hero-quote-text {
   margin: 0 0 12px;
   font-size: 14px;
@@ -229,13 +215,14 @@ main {
   color: var(--text-muted);
 }
 
-.hero-quote-note {
-  margin: 0;
+.hero-quote-source {
+  display: block;
+  font-style: normal;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
-  color: var(--text-faint);
-  text-align: center;
+  color: var(--pipe-dark);
+  text-align: right;
 }
 
 .hero-content .body-copy:last-of-type {
