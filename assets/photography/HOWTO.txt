@@ -1,0 +1,13 @@
+Add your favourite photos here (.jpg, .webp, or .png).
+
+Then list each one in manifest.json, for example:
+
+[
+  {
+    "file": "china-trip.jpg",
+    "caption": "Shanghai, 2024",
+    "alt": "Night street scene in Shanghai"
+  }
+]
+
+Keep files reasonably sized (under ~1MB each) so the site stays fast.

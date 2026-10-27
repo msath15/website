@@ -1,0 +1,12 @@
+Add postcard scans here (.jpg, .webp, or .png).
+
+Then list each one in manifest.json, for example:
+
+[
+  {
+    "file": "shanghai.jpg",
+    "place": "Shanghai, China",
+    "note": "First solo trip where I couldn't read a single sign—and loved it.",
+    "alt": "Postcard from Shanghai"
+  }
+]
