@@ -18,7 +18,7 @@ async function initPhotography() {
   if (!gallery || !empty) return;
 
   const base = siteBase();
-  const manifestUrl = `${base}assets/photography/manifest.json?v=60`;
+  const manifestUrl = `${base}assets/photography/manifest.json?v=61`;
 
   try {
     const response = await fetch(manifestUrl);
@@ -37,7 +37,7 @@ async function initPhotography() {
       figure.className = "photo-card photo-postcard";
 
       const img = document.createElement("img");
-      img.src = `${base}assets/photography/${encodeURIComponent(photo.file)}?v=60`;
+      img.src = `${base}assets/photography/${encodeURIComponent(photo.file)}?v=61`;
       img.alt = photo.alt || photo.caption || "Photography by Sathvika Mallavarapu";
       img.loading = "lazy";
       img.decoding = "async";
@@ -105,10 +105,19 @@ function initReveal() {
 async function initPostcards() {
   const gallery = document.getElementById("postcard-gallery");
   const placeholders = document.getElementById("postcard-placeholders");
+  const empty = document.getElementById("postcard-gallery-empty");
   if (!gallery || !placeholders) return;
 
+  function showEmptyMessage() {
+    if (empty) empty.hidden = false;
+  }
+
+  function hideEmptyMessage() {
+    if (empty) empty.hidden = true;
+  }
+
   const base = siteBase();
-  const manifestUrl = `${base}assets/postcards/manifest.json?v=60`;
+  const manifestUrl = `${base}assets/postcards/manifest.json?v=61`;
 
   function showPlaceholders() {
     placeholders.hidden = false;
@@ -126,6 +135,7 @@ async function initPostcards() {
     const cards = await response.json();
     if (!Array.isArray(cards) || cards.length === 0) {
       showPlaceholders();
+      showEmptyMessage();
       gallery.setAttribute("aria-busy", "false");
       return;
     }
@@ -140,7 +150,7 @@ async function initPostcards() {
       front.className = "postcard-face postcard-face--front";
 
       const img = document.createElement("img");
-      img.src = `${base}assets/postcards/${encodeURIComponent(card.file)}?v=60`;
+      img.src = `${base}assets/postcards/${encodeURIComponent(card.file)}?v=61`;
       img.alt = card.alt || card.place || "Postcard";
       img.loading = "lazy";
       img.decoding = "async";
@@ -164,8 +174,10 @@ async function initPostcards() {
 
     gallery.appendChild(fragment);
     hidePlaceholders();
+    hideEmptyMessage();
   } catch {
     showPlaceholders();
+    showEmptyMessage();
   } finally {
     gallery.setAttribute("aria-busy", "false");
   }

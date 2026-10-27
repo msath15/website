@@ -256,6 +256,10 @@
   padding-top: 8px;
 }
 
+.discovery--postcards .photo-empty {
+  margin-top: 14px;
+}
+
 .discovery--manifesto {
   margin-bottom: 48px;
   padding-bottom: 12px;
